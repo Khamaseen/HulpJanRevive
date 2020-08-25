@@ -2,13 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group>
-        <item android:id="@+id/nav_item_one"
+        <item
+            android:id="@+id/nav_item_one"
             android:icon="@drawable/ic_baseline_chevron_right_24"
             android:title="Item 1" />
-        <item android:id="@+id/nav_item_two"
+        <item
+            android:id="@+id/nav_item_two"
             android:icon="@drawable/ic_baseline_chevron_right_24"
             android:title="Item 2" />
-        <item android:id="@+id/nav_item_three"
+        <item
+            android:id="@+id/nav_item_three"
             android:icon="@drawable/ic_baseline_chevron_right_24"
             android:title="Item 3" />
     </group>
