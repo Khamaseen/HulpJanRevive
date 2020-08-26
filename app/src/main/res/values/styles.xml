@@ -1,10 +1,19 @@
 <resources>
+    <!--
+    For night and dark themes ?attr/ && android:?attr/ are recommended.
+    Also: https://proandroiddev.com/implementing-dark-theme-in-your-android-application-ec2b4fefb6e3
+    Update accordingly.
+    Also: https://medium.com/androiddevelopers/android-styling-common-theme-attributes-8f7c50c9eaba
+    Update accordingly
+    -->
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -17,4 +26,16 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
+    <!-- Styles for components -->
+    <style name="text_default" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+    <style name="text_default.title" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
 </resources>
