@@ -1,7 +1,6 @@
 package com.example.hulpjanrevive
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_drawer_layout)
         setSupportActionBar(findViewById<Toolbar>(R.id.toolbar))
 
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.layout_drawer_main)
         val navController = findNavController(R.id.host_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout) //TODO add menu items for each destination
 

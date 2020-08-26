@@ -42,8 +42,8 @@ class MainFragment : Fragment() {
         viewModel.liveTasks.observe(viewLifecycleOwner) { list ->
             setListOnAdapter(list)
         }
-        add_new.setOnClickListener { addNumber331() }
-//        add_new.setOnClickListener { openDateDialogFragment() }
+//        add_new.setOnClickListener { addNumber331() }
+        add_new.setOnClickListener { openDateDialogFragment() }
 
     }
 
