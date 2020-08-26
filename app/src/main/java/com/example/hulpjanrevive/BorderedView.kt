@@ -31,9 +31,13 @@ class BorderedView(
         this.typeface = face
     }
 
+    override fun setText(text: CharSequence?, type: BufferType?) {
+        super.setText(text, type)
+    }
+
 
     fun setTimeRemaining() {
-        template += "text to set"
+        template = "text to set"
         super.setText(template)
     }
 
@@ -43,6 +47,7 @@ class BorderedView(
         paint.setStrokeWidth(1.5f)
         paint.setStyle(Paint.Style.STROKE)
         canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), paint)
+        super.onDraw(canvas)
     }
 
 }
