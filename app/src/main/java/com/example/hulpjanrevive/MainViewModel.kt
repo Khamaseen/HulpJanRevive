@@ -20,6 +20,15 @@ class MainViewModel(
     }
 
     init {
+        getList()
+    }
+
+    fun addNumber() {
+        repository.addToMock(331)
+        getList()
+    }
+
+    private fun getList() {
         viewModelScope.launch(dispatcher) {
             tasks.postValue(repository.returnMockTasks())
         }

@@ -42,7 +42,9 @@ class MainFragment : Fragment() {
         viewModel.liveTasks.observe(viewLifecycleOwner) { list ->
             setListOnAdapter(list)
         }
-        add_new.setOnClickListener { openDateDialogFragment() }
+        add_new.setOnClickListener { addNumber331() }
+//        add_new.setOnClickListener { openDateDialogFragment() }
+
     }
 
     private fun openDateDialogFragment() {
@@ -51,6 +53,10 @@ class MainFragment : Fragment() {
 
     private fun setListOnAdapter(list: List<Int>) {
         adapter.setData(list)
+    }
+
+    private fun addNumber331() {
+        viewModel.addNumber()
     }
 
 }
