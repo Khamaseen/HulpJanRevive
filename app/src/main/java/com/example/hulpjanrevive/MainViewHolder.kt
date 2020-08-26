@@ -31,7 +31,7 @@ class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.O
     }
 
     fun setData(data: Int) {
-        itemView.findViewById<TextView>(R.id.title)?.text = "New Title"
+        itemView.findViewById<TextView>(R.id.title)?.text = "New Title $data"
         itemView.findViewById<TextView>(R.id.description)?.text = "Description"
     }
 

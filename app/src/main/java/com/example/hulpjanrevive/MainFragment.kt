@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -15,7 +16,7 @@ class MainFragment : Fragment() {
     private val viewModel: MainViewModel by viewModels {
         ComponentInjector.provideMainViewModelFactory(requireContext())
     }
-    private lateinit var adapter: RecyclerView.Adapter<MainViewHolder>
+    private lateinit var adapter: MainAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +29,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         bordered_view.text = "12 uur"
         bordered_view.setTimeRemaining()
 
@@ -37,11 +39,18 @@ class MainFragment : Fragment() {
             recycler_view.layoutManager = LinearLayoutManager(it)
         }
 
+        viewModel.liveTasks.observe(viewLifecycleOwner) { list ->
+            setListOnAdapter(list)
+        }
         add_new.setOnClickListener { openDateDialogFragment() }
     }
 
     private fun openDateDialogFragment() {
         activity?.supportFragmentManager?.let { DatePickerFragment().show(it, "datePicker") }
+    }
+
+    private fun setListOnAdapter(list: List<Int>) {
+        adapter.setData(list)
     }
 
 }
