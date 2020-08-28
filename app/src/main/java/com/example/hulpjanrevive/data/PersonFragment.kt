@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
-import com.example.hulpjanrevive.PersonViewModel
+import com.example.hulpjanrevive.ui.PersonViewModel
 import com.example.hulpjanrevive.R
 import kotlinx.android.synthetic.main.fragment_person.*
 

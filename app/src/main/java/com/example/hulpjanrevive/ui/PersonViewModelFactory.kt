@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.ui
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -14,7 +14,11 @@ class PersonViewModelFactory(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return PersonViewModel(dispatcher, context, personRepository) as T
+        return PersonViewModel(
+            dispatcher,
+            context,
+            personRepository
+        ) as T
     }
 
 }

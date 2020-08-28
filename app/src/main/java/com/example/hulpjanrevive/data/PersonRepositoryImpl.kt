@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.data
 
 import com.example.hulpjanrevive.data.PersonRepository
 

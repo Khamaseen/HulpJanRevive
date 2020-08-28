@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/homeFragment"
         android:name="com.example.hulpjanrevive.ui.HomeFragment"
         android:label="Overview"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_mainFragment_to_personFragment"
             app:destination="@id/personFragment" />

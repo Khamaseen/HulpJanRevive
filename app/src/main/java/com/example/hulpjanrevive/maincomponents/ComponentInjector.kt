@@ -2,8 +2,8 @@ package com.example.hulpjanrevive.maincomponents
 
 import android.content.Context
 import com.example.hulpjanrevive.ui.MainViewModelFactory
-import com.example.hulpjanrevive.PersonRepositoryImpl
-import com.example.hulpjanrevive.PersonViewModelFactory
+import com.example.hulpjanrevive.data.PersonRepositoryImpl
+import com.example.hulpjanrevive.ui.PersonViewModelFactory
 import com.example.hulpjanrevive.data.MainRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 
