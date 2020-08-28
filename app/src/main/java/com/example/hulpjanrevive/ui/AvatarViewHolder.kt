@@ -10,9 +10,13 @@ class AvatarViewHolder(
     itemView: View
 ): RecyclerView.ViewHolder(itemView){
 
+    private lateinit var data: IconResource
 
-    fun bind(listener: View.OnClickListener, data: IconResource) {
-        itemView.setOnClickListener { listener }
+    fun bind(listener: (IconResource) -> Unit, data: IconResource) {
+        this.data = data
+        itemView.setOnClickListener {
+            listener(data)
+        }
         itemView.findViewById<ImageView>(R.id.iv_icon)?.apply {
             setImageDrawable(resources.getDrawable(data.icon))
         }

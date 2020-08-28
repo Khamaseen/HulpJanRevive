@@ -40,7 +40,7 @@ class AvatarPicker(
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        adapter = AvatarAdapter(context, View.OnClickListener { onClicked() })
+        adapter = AvatarAdapter(context, {onClicked(it)} )
     }
 
     override fun onCreateView(
@@ -55,11 +55,11 @@ class AvatarPicker(
         super.onViewCreated(view, savedInstanceState)
 
         val mapper = ResourceMapper()
-        savedInstanceState?.also {
+        arguments?.also {
             val number = it.getInt(ICON_RESOURCE)
             val current = mapper.mapToIconResources(listOf(RawIconResource(number)))[0]
             iv_current.setImageResource(current.icon)
-            tv_current.text = current.description.toString()
+            tv_current.text = getString(current.description)
         }
 
         recycler_view.layoutManager = LinearLayoutManager(requireContext())
@@ -72,8 +72,10 @@ class AvatarPicker(
         recycler_view.adapter = adapter
     }
 
-    private fun onClicked() {
+    private fun onClicked(data: IconResource) {
         Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
+//        setFragmentResult("requestKey", bundleOf("resultKey" to result))
+//        dismiss()
     }
 
 }

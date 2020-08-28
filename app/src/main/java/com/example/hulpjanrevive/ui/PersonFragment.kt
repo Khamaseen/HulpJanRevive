@@ -90,6 +90,11 @@ class PersonFragment : Fragment() {
     }
 
     private fun openAvatarPicker(icon: Int?) {
+//        setFragmentResultListener("requestKey") { key, bundle ->
+//            val result = bundle.getString("resultKey")
+//            // Do something with the result...
+//        }
+
         val newFragment: AvatarPicker = AvatarPicker.newInstance(icon ?: 0)
         newFragment.show(requireFragmentManager(), "dialog")
         Toast.makeText(context, "clicked avatar", Toast.LENGTH_SHORT).show()

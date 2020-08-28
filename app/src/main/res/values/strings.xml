@@ -11,6 +11,8 @@
     <string name="ic_default_profile_2">Espressokopje</string>
     <string name="ic_default_profile_3">Lachebekje</string>
 
+    <string name="pick_avatar">Kies je nieuwe avatar</string>
+
     <!-- MENU titles -->
     <string name="drawer_self">Eigen profiel</string>
 </resources>

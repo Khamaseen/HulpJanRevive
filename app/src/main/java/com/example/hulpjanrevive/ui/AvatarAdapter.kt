@@ -2,14 +2,13 @@ package com.example.hulpjanrevive.ui
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hulpjanrevive.R
 
 class AvatarAdapter(
     private val context: Context,
-    private val listener: View.OnClickListener
+    private val listener: (IconResource) -> Unit
 ) : RecyclerView.Adapter<AvatarViewHolder>() {
 
     private var data: List<IconResource>? = null
