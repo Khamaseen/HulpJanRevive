@@ -1,5 +1,6 @@
 package com.example.hulpjanrevive
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val dispatcher: CoroutineDispatcher,
+    private val context: Context,
     private val repository: MainRepository
 ) : ViewModel() {
 

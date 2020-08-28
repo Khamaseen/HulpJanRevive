@@ -1,17 +1,19 @@
 package com.example.hulpjanrevive
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineDispatcher
 
-class FactoryMainViewModel(
+class PersonViewModelFactory(
     private val dispatcher: CoroutineDispatcher,
-    private val repository: MainRepository
+    private val context: Context,
+    private val personRepository: PersonRepository
 ): ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return MainViewModel(dispatcher, repository) as T
+        return PersonViewModel(dispatcher, context, personRepository) as T
     }
 
 }

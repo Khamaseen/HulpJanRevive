@@ -1,10 +1,12 @@
 package com.example.hulpjanrevive
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.main_drawer_layout.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,13 +31,29 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout) //TODO add menu items for each destination
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+
         findViewById<NavigationView>(R.id.navigation_view).setupWithNavController(navController)
+        navigation_view.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.personFragment -> {
+                    val action = MainFragmentDirections.actionMainFragmentToPersonFragment(0)
+                    findNavController(R.id.host_fragment).navigate(action)
+                    closeDrawer()
+                }
+            }
+
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.host_fragment)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    private fun closeDrawer() {
+        layout_drawer_main.closeDrawer(GravityCompat.START)
     }
 
 

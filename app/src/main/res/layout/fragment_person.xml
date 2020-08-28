@@ -38,7 +38,6 @@
                 android:id="@+id/btn_edit_self"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="36dp"
                 android:layout_marginBottom="48dp"
                 android:layout_marginTop="@dimen/border_primary"
                 android:text="@string/edit_self"

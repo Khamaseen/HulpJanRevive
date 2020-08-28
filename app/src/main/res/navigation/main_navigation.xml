@@ -18,6 +18,11 @@
         android:id="@+id/personFragment"
         android:name="com.example.hulpjanrevive.PersonFragment"
         android:label="fragment_person"
-        tools:layout="@layout/fragment_person" />
+        tools:layout="@layout/fragment_person" >
+        <argument
+            android:name="person_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 
 </navigation>
