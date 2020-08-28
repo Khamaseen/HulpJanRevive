@@ -5,7 +5,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hulpjanrevive.R
 
-class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
+class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener,
+    View.OnLongClickListener {
 
     /**
      * If this viewholder would hold the data, then onClick could open a fragment
@@ -31,9 +32,13 @@ class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.O
         TODO("Not yet implemented")
     }
 
-    fun setData(data: Int) {
-        itemView.findViewById<TextView>(R.id.title)?.text = "New Title $data"
-        itemView.findViewById<TextView>(R.id.description)?.text = "Description"
+    fun bind(data: Int) {
+        itemView.findViewById<TextView>(R.id.title)?.apply {
+            text = "New Title $data"
+        }
+        itemView.findViewById<TextView>(R.id.description)?.apply {
+            text = "Description"
+        }
     }
 
 }

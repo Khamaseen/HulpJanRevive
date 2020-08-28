@@ -88,4 +88,12 @@ class MainActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show();
     }
+
+    override fun onBackPressed() {
+        if (layout_drawer_main.isOpen) {
+            layout_drawer_main.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

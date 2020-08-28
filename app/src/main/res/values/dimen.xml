@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="border_primary">24dp</dimen>
+    <dimen name="border_minimal">6dp</dimen>
 
     <dimen name="avatar_size">112dp</dimen>
 

@@ -22,7 +22,7 @@ class TaskAdapter(context: Context, private var data: List<Int>): RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.setData(dataList[position])
+        holder.bind(dataList[position])
     }
 
     fun setData(list: List<Int>) {

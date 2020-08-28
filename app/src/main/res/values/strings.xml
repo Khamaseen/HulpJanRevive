@@ -3,8 +3,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="edit_self">edit</string>
+    <string name="edit_profile_on">edit</string>
+    <string name="edit_profile_off">stop editing</string>
 
+    <!--AVATARS DESC-->
+    <string name="ic_default_profile">Vriendenzoeker</string>
+    <string name="ic_default_profile_2">Espressokopje</string>
+    <string name="ic_default_profile_3">Lachebekje</string>
 
     <!-- MENU titles -->
     <string name="drawer_self">Eigen profiel</string>

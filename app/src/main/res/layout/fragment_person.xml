@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".data.PersonFragment">
+    tools:context=".ui.PersonFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -40,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="48dp"
                 android:layout_marginTop="@dimen/border_primary"
-                android:text="@string/edit_self"
-                style="@style/button_default"
+                android:text="@string/edit_profile_on"
+                style="@style/button_default_enabled"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
@@ -62,23 +62,55 @@
                 app:layout_constraintTop_toBottomOf="@id/barrier_edit"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"/>
 
+            <!-- EITHER TEXTVIEW OR EDIT TEXT -> DEPENDS ON EDITABLE MODE -->
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tv_name, edit_name"/>
+
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hello_blank_fragment"
                 style="@style/text_default.title"
+                android:visibility="visible"
                 app:layout_constraintTop_toBottomOf="@id/barrier_edit"
                 app:layout_constraintBottom_toBottomOf="@id/barrier_profile"
                 app:layout_constraintStart_toEndOf="@id/iv_avatar"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_blank_fragment"
+                style="@style/text_default.editable"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/barrier_edit"
+                app:layout_constraintBottom_toBottomOf="@id/barrier_profile"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/border_minimal"
+                style="@style/text_default.editable"
+                tools:text="nick name"
+                app:layout_constraintTop_toBottomOf="@id/barrier_name"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toEndOf="@id/iv_avatar"/>
+
 
             <androidx.constraintlayout.widget.Barrier
                 android:id="@+id/barrier_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"
-                app:constraint_referenced_ids="tv_name, iv_avatar" />
+                app:constraint_referenced_ids="tv_name, iv_avatar, edit_name" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tasks"

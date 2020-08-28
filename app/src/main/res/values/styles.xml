@@ -14,6 +14,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorControlActivated">@color/colorActivated</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -36,12 +37,24 @@
         <item name="android:textColor">@color/colorSecondary</item>
         <item name="android:textStyle">bold</item>
     </style>
-
-    <style name="button_default">
+    <style name="text_default.editable" parent="TextAppearance.AppCompat">
         <item name="android:textSize">16sp</item>
-        <item name="android:padding">0dp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="button_default_enabled">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textColor">@color/colorSecondary</item>
         <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="button_default_disabled">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:background">@color/colorActivated</item>
     </style>
     
 </resources>
