@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.ui
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.util.AttributeSet
+import com.example.hulpjanrevive.R
 
 
 class BorderedView(

@@ -1,28 +1,20 @@
 package com.example.hulpjanrevive
 
 
-import android.app.DatePickerDialog
-import android.view.Gravity
 import android.widget.DatePicker
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.GeneralLocation
-import androidx.test.espresso.action.GeneralSwipeAction
-import androidx.test.espresso.action.Press
-import androidx.test.espresso.action.Swipe
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.DrawerMatchers.isClosed
-import androidx.test.espresso.contrib.DrawerMatchers.isOpen
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
+import com.example.hulpjanrevive.maincomponents.MainActivity
 import org.hamcrest.Matchers
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.lang.Character.getName
 
 
 /**
@@ -31,7 +23,7 @@ import java.lang.Character.getName
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class MainFragmentTest {
+class HomeFragmentTest {
 
     @Rule
     @JvmField

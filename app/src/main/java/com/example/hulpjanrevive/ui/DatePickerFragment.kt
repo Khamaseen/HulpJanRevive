@@ -1,10 +1,11 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.ui
 
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
+import com.example.hulpjanrevive.maincomponents.MainActivity
 import java.util.*
 
 class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListener {

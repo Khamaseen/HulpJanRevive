@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.hulpjanrevive.R
+import com.example.hulpjanrevive.maincomponents.ComponentInjector
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private val viewModel: MainViewModel by viewModels {
+    private val viewModel: HomeViewModel by viewModels {
         ComponentInjector.provideMainViewModelFactory(requireContext())
     }
-    private lateinit var adapter: MainAdapter
+    private lateinit var adapter: TaskAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +35,8 @@ class MainFragment : Fragment() {
         bordered_view.setTimeRemaining()
 
         context?.let {
-            adapter = MainAdapter(it, listOf<Int>(2, 3))
+            adapter =
+                TaskAdapter(it, listOf<Int>(2, 3))
             recycler_view.adapter = adapter
             recycler_view.layoutManager = LinearLayoutManager(it)
         }
@@ -48,7 +50,8 @@ class MainFragment : Fragment() {
     }
 
     private fun openDateDialogFragment() {
-        activity?.supportFragmentManager?.let { DatePickerFragment().show(it, "datePicker") }
+        activity?.supportFragmentManager?.let { DatePickerFragment()
+            .show(it, "datePicker") }
     }
 
     private fun setListOnAdapter(list: List<Int>) {

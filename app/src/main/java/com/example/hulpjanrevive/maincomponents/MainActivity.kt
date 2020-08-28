@@ -1,7 +1,6 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.maincomponents
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +12,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.hulpjanrevive.R
+import com.example.hulpjanrevive.ui.HomeFragmentDirections
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.main_drawer_layout.*
 
@@ -36,7 +37,10 @@ class MainActivity : AppCompatActivity() {
         navigation_view.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.personFragment -> {
-                    val action = MainFragmentDirections.actionMainFragmentToPersonFragment(0)
+                    val action =
+                        HomeFragmentDirections.actionMainFragmentToPersonFragment(
+                            0
+                        )
                     findNavController(R.id.host_fragment).navigate(action)
                     closeDrawer()
                 }

@@ -1,10 +1,11 @@
-package com.example.hulpjanrevive
+package com.example.hulpjanrevive.ui
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hulpjanrevive.R
 
-class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
+class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
 
     /**
      * If this viewholder would hold the data, then onClick could open a fragment

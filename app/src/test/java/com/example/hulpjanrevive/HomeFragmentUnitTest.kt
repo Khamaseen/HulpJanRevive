@@ -9,7 +9,7 @@ import org.junit.Assert.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class MainFragmentUnitTest {
+class HomeFragmentUnitTest {
 
     @Test
     fun addition_isCorrect() {

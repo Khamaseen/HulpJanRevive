@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.hulpjanrevive.MainFragment"
+        android:name="com.example.hulpjanrevive.ui.HomeFragment"
         android:label="Overview"
         tools:layout="@layout/fragment_main" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/personFragment"
-        android:name="com.example.hulpjanrevive.PersonFragment"
+        android:name="com.example.hulpjanrevive.data.PersonFragment"
         android:label="fragment_person"
         tools:layout="@layout/fragment_person" >
         <argument
