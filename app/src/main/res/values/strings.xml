@@ -6,10 +6,14 @@
     <string name="edit_profile_on">edit</string>
     <string name="edit_profile_off">stop editing</string>
 
+    <string name="current_tasks">Opkomende taken:</string>
+    <string name="empty_tasks">&lt;Er zijn op dit moment geen opkomende taken&gt;</string>
+
     <!--AVATARS DESC-->
     <string name="ic_default_profile">Vriendenzoeker</string>
     <string name="ic_default_profile_2">Espressokopje</string>
     <string name="ic_default_profile_3">Lachebekje</string>
+    <string name="ic_default_profile_4">Kadootje</string>
 
     <string name="pick_avatar">Kies je nieuwe avatar</string>
 

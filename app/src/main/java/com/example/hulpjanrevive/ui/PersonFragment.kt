@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
@@ -14,11 +14,7 @@ import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
 import kotlinx.android.synthetic.main.fragment_person.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PersonFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class PersonFragment : Fragment() {
 
     private val args: PersonFragmentArgs by navArgs()
@@ -30,6 +26,14 @@ class PersonFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setFragmentResultListener(AvatarPicker.REQUEST_KEY) { key, bundle ->
+            val result = bundle.getParcelable<IconResource>(AvatarPicker.REQUEST_KEY_RESULT)
+            result?.apply {
+                setAvatar(this)
+            }
+        }
+
     }
 
     override fun onCreateView(
@@ -41,6 +45,8 @@ class PersonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        tv_tasks_empty.visibility = View.VISIBLE //TODO() integrate into recyclerview with tasks..
 
         btn_edit_self.visibility = if (args.personId == -1) View.GONE else View.VISIBLE
 
@@ -66,7 +72,7 @@ class PersonFragment : Fragment() {
 
     private fun setEditOn() {
         iv_avatar.isEnabled = true
-        tv_name.visibility = View.GONE
+        tv_name.visibility = View.INVISIBLE
         edit_name.visibility = View.VISIBLE
 
         btn_edit_self.apply {
@@ -90,11 +96,6 @@ class PersonFragment : Fragment() {
     }
 
     private fun openAvatarPicker(icon: Int?) {
-//        setFragmentResultListener("requestKey") { key, bundle ->
-//            val result = bundle.getString("resultKey")
-//            // Do something with the result...
-//        }
-
         val newFragment: AvatarPicker = AvatarPicker.newInstance(icon ?: 0)
         newFragment.show(requireFragmentManager(), "dialog")
         Toast.makeText(context, "clicked avatar", Toast.LENGTH_SHORT).show()
@@ -113,4 +114,5 @@ class PersonFragment : Fragment() {
         iv_avatar.setImageResource(iconResource.icon)
         tv_nickname.text = getString(iconResource.description)
     }
+
 }

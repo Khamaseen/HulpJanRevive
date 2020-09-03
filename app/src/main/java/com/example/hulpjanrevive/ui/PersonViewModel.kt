@@ -13,27 +13,29 @@ class PersonViewModel(
     private val dispatcher: CoroutineDispatcher,
     private val context: Context,
     private val personRepository: PersonRepository
-): ViewModel() {
+) : ViewModel() {
 
     //THIS MAPPER SHOULD BE IN DATA
     private val resourceMapper: ResourceMapper = ResourceMapper()
     private val listRawIcons: List<RawIconResource> = listOf<RawIconResource>(
         RawIconResource(0),
         RawIconResource(1),
-        RawIconResource(2)
+        RawIconResource(2),
+        RawIconResource(3)
     )
 
     private val _editMode: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-    val editMode: LiveData<Boolean> = _editMode
-
     private val _name: MutableLiveData<String> = MutableLiveData<String>()
-    val name: LiveData<String> = _name
-
-    private val _avatars: MutableLiveData<List<IconResource>> = MutableLiveData<List<IconResource>>()
-    val avatars: LiveData<List<IconResource>> = _avatars
-
+    private val _listAvatars: MutableLiveData<List<IconResource>> =
+        MutableLiveData<List<IconResource>>()
     private val _avatar: MutableLiveData<IconResource> = MutableLiveData<IconResource>()
+    //TODO() list tasks
+
+    val listAvatars: LiveData<List<IconResource>> = _listAvatars
+    val editMode: LiveData<Boolean> = _editMode
+    val name: LiveData<String> = _name
     val avatar: LiveData<IconResource> = _avatar
+    //TODO() list tasks
 
     init {
         _editMode.value = false
@@ -48,7 +50,7 @@ class PersonViewModel(
     }
 
     fun getMockAvatars() {
-        _avatars.value = resourceMapper.mapToIconResources(listRawIcons)
+        _listAvatars.value = resourceMapper.mapToIconResources(listRawIcons)
     }
 
     fun postAvatar() {

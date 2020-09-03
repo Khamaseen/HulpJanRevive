@@ -34,7 +34,7 @@
                 app:layout_constraintGuide_end="@dimen/border_primary"
                 android:orientation="vertical"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_edit_self"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,6 +42,7 @@
                 android:layout_marginTop="@dimen/border_primary"
                 android:text="@string/edit_profile_on"
                 style="@style/button_default_enabled"
+                app:backgroundTint="@null"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
@@ -98,9 +99,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/border_minimal"
-                style="@style/text_default.editable"
+                style="@style/text_default.greyed"
                 tools:text="nick name"
-                app:layout_constraintTop_toBottomOf="@id/barrier_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
                 app:layout_constraintStart_toEndOf="@id/iv_avatar"/>
 
@@ -112,12 +113,35 @@
                 app:barrierDirection="bottom"
                 app:constraint_referenced_ids="tv_name, iv_avatar, edit_name" />
 
+            <TextView
+                android:id="@+id/tv_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/border_primary"
+                style="@style/text_default.title"
+                android:text="@string/current_tasks"
+                app:layout_constraintTop_toBottomOf="@id/barrier_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_tasks_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                style="@style/text_default.greyed"
+                android:text="@string/empty_tasks"
+                android:layout_margin="@dimen/border_double_primary"
+                app:layout_constraintTop_toBottomOf="@id/tv_tasks"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tasks"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/border_primary"
-                app:layout_constraintTop_toBottomOf="@id/barrier_profile"
+                app:layout_constraintTop_toBottomOf="@id/tv_tasks"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
 

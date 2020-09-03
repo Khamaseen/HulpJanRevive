@@ -5,15 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.data.util.ResourceMapper
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
-import kotlinx.android.synthetic.main.avatar_list_item.*
 import kotlinx.android.synthetic.main.fragment_avatar_dialog.*
 
 
@@ -28,6 +28,8 @@ class AvatarPicker(
 
     companion object {
         const val ICON_RESOURCE = "icon"
+        const val REQUEST_KEY = "icon requestkey"
+        const val REQUEST_KEY_RESULT = "icon result requestkey"
 
         fun newInstance(iconResource: Int): AvatarPicker {
             val args = Bundle()
@@ -40,7 +42,7 @@ class AvatarPicker(
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        adapter = AvatarAdapter(context, {onClicked(it)} )
+        adapter = AvatarAdapter(context, { onClicked(it) })
     }
 
     override fun onCreateView(
@@ -64,7 +66,7 @@ class AvatarPicker(
 
         recycler_view.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.avatars.observe(viewLifecycleOwner) {
+        viewModel.listAvatars.observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
         viewModel.getMockAvatars()
@@ -72,10 +74,9 @@ class AvatarPicker(
         recycler_view.adapter = adapter
     }
 
-    private fun onClicked(data: IconResource) {
-        Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
-//        setFragmentResult("requestKey", bundleOf("resultKey" to result))
-//        dismiss()
+    private fun onClicked(iconResource: IconResource) {
+        setFragmentResult(REQUEST_KEY, bundleOf(REQUEST_KEY_RESULT to iconResource))
+        dismiss()
     }
 
 }
