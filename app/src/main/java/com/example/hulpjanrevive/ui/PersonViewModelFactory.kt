@@ -3,7 +3,6 @@ package com.example.hulpjanrevive.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.hulpjanrevive.data.PersonRepository
 import kotlinx.coroutines.CoroutineDispatcher
 
 class PersonViewModelFactory(

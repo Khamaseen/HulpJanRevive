@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.hulpjanrevive.R
-import com.example.hulpjanrevive.data.PersonRepository
 import com.example.hulpjanrevive.data.util.ResourceMapper
 import kotlinx.coroutines.CoroutineDispatcher
 
