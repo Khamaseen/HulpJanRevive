@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.hulpjanrevive.data.dao.UsersDao
@@ -27,6 +29,11 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        private fun getLastUpdate(): String {
+            //SHARED PREFERENCES
+            return ""
+        }
+
         //This database should, with the callback, after getting an instance be updated.
         //If things go well... microservices...
         private fun buildDatabase(context: Context): AppDatabase {
@@ -37,8 +44,7 @@ abstract class AppDatabase : RoomDatabase() {
             ).addCallback(object: RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
-                    val work = OneTimeWorkRequestBuilder<DatabaseWorker>().build()
-                    WorkManager.getInstance(context).enqueue(work)
+                    SyncDatabaseWorker(context, getLastUpdate()).sync()
                 }
             }).build()
         }
