@@ -19,8 +19,7 @@ object ComponentInjector {
     fun providePersonViewModelFactory(context: Context): PersonViewModelFactory {
         return PersonViewModelFactory(
             Dispatchers.IO,
-            context,
-            PersonRepositoryImpl()
+            context
         )
     }
 

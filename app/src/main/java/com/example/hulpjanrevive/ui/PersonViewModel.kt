@@ -10,8 +10,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 
 class PersonViewModel(
     private val dispatcher: CoroutineDispatcher,
-    private val context: Context,
-    private val personRepository: PersonRepository
+    private val context: Context
 ) : ViewModel() {
 
     //THIS MAPPER SHOULD BE IN DATA

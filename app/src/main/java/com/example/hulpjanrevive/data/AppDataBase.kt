@@ -5,10 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.work.ExistingWorkPolicy
-import androidx.work.OneTimeWorkRequest
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
 import com.example.hulpjanrevive.data.dao.UsersDao
 import com.example.hulpjanrevive.data.entities.User
 
@@ -18,10 +14,10 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun usersDao(): UsersDao
 
     companion object {
-        private const val DATABASE_NAME = "only jan"
+        private const val DATABASE_NAME = "only_jan"
 
-        // For Singleton instantiation
-        @Volatile private var instance: AppDatabase? = null
+        @Volatile
+        private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
@@ -30,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         private fun getLastUpdate(): String {
-            //SHARED PREFERENCES
+            //RETRIEVE FROM SHARED PREFERENCES <-
             return ""
         }
 
@@ -41,10 +37,10 @@ abstract class AppDatabase : RoomDatabase() {
                 context,
                 AppDatabase::class.java,
                 DATABASE_NAME
-            ).addCallback(object: RoomDatabase.Callback() {
+            ).addCallback(object : RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
-                    SyncDatabaseWorker(context, getLastUpdate()).sync()
+                    SyncDatabaseWorker(context).sync()
                 }
             }).build()
         }

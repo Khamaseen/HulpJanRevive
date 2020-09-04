@@ -7,16 +7,14 @@ import kotlinx.coroutines.CoroutineDispatcher
 
 class PersonViewModelFactory(
     private val dispatcher: CoroutineDispatcher,
-    private val context: Context,
-    private val personRepository: PersonRepository
+    private val context: Context
 ): ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return PersonViewModel(
             dispatcher,
-            context,
-            personRepository
+            context
         ) as T
     }
 
