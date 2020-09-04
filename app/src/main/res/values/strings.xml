@@ -3,6 +3,23 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Onboarding -->
+    <string name="welkom_info">Hi, we zien dat dit de eerste keer is dat je inlogt. Om gebruik te maken
+    van deze app moet je eerst een gebruiker aanmaken.</string>
+    <string name="welkom_name">Uw naam:</string>
+    <string name="welkom_associatie">U bent:</string>
+    <string name="welkom_avatar">Kies een avatar:</string>
+    <string name="welkom_create">Maak aan</string>
+    <string name="welkom_sync_info">Bij het aanmaken van de gebruiker wordt er eerst een synchronisatie gedaan
+    met de database. De volgende keren gebeurd deze synchronisatie, mits het nodig is en mits er internet is,
+    op de achtergrond.</string>
+    <string name="welkom_sync_status_info">Status synhronisatie:</string>
+    <string name="welkom_sync_status_no_connection">Uw internet staat uit. Zet uw internet aan en probeer opnieuw.</string>
+    <string name="welkom_sync_status_no_remote_found">Helaas kunnen we geen verbinding maken met de server. Probeer het later
+        nog eens. Neem contact op met de organisatie als dit probleem zich blijft voordoen.</string>
+    <string name="welkom_sync_status_done">Uw gebruiker is aangemaakt en u kunt vanaf nu gebruik maken van
+    deze HulpJanRevive. Voor meer informatie betreffende de app zie \'Help\' in het menu.</string>
+
     <string name="edit_profile_on">edit</string>
     <string name="edit_profile_off">stop editing</string>
 

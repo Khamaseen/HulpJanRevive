@@ -10,6 +10,7 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
+import com.example.hulpjanrevive.maincomponents.MainActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -29,7 +30,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        (activity as MainActivity).setBar()
 
         bordered_view.text = "12 uur"
         bordered_view.setTimeRemaining()
