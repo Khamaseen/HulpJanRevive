@@ -2,7 +2,6 @@ package com.example.hulpjanrevive.maincomponents
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
@@ -46,6 +45,12 @@ class MainActivity : AppCompatActivity() {
         listener = createDestinationChangeListener()
     }
 
+    fun activateSupportActionBar() {
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        setUpActionBarNavigation()
+        this.supportActionBar?.show()
+    }
+
     private fun setUpOnboarding() {
         navController.graph.startDestination = R.id.onboardingFragment
     }
@@ -60,16 +65,10 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    fun setBar() {
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        setUpActionBarNavigation()
-        this.supportActionBar?.show()
-    }
-
     private fun setUpActionBarNavigation() {
         findViewById<NavigationView>(R.id.navigation_view).setupWithNavController(navController)
         navigation_view.setNavigationItemSelectedListener { item ->
-            closeDrawer()
+            drawerLayout.closeDrawer(GravityCompat.START)
             navigateTo(item)
             true
         }
@@ -87,25 +86,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun closeDrawer() {
-        layout_drawer_main.closeDrawer(GravityCompat.START)
-    }
-
-    private fun unlockDrawer() {
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-    }
-
-    private fun lockDrawerHideActionBar() {
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-        supportActionBar?.hide()
-    }
-
     private fun createDestinationChangeListener(): NavController.OnDestinationChangedListener {
         return NavController.OnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.onboardingFragment) {
-                lockDrawerHideActionBar()
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                supportActionBar?.hide()
             } else {
-                unlockDrawer()
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 setUpHome()
             }
         }
@@ -123,22 +110,10 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-    fun processDatePickerResult(year: Int, month: Int, day: Int) {
-        val monthString = (month + 1).toString()
-        val dayString = day.toString()
-        val yearString = year.toString()
-        val dateMessage = monthString +
-                "/" + dayString + "/" + yearString
-        Toast.makeText(
-            this, "Date: $dateMessage",
-            Toast.LENGTH_SHORT
-        ).show();
-    }
-
+    
     override fun onBackPressed() {
         if (layout_drawer_main.isOpen) {
-            closeDrawer()
+            drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }

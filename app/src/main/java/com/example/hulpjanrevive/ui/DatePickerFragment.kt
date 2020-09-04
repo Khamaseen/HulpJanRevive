@@ -4,7 +4,10 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
 import com.example.hulpjanrevive.maincomponents.MainActivity
 import java.util.*
 
@@ -26,7 +29,22 @@ class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListene
     }
 
     override fun onDateSet(datePicker: DatePicker?, year: Int, month: Int, day: Int) {
-        (activity as MainActivity).processDatePickerResult(year, month, day)
+//        (activity as MainActivity).processDatePickerResult(year, month, day)  ->> TODO remove this
+//        setFragmentResult(AvatarPicker.REQUEST_KEY, bundleOf(AvatarPicker.REQUEST_KEY_RESULT to iconResource)) -->> TODO use this
+
     }
+
+
+//    fun processDatePickerResult(year: Int, month: Int, day: Int) {
+//        val monthString = (month + 1).toString()
+//        val dayString = day.toString()
+//        val yearString = year.toString()
+//        val dateMessage = monthString +
+//                "/" + dayString + "/" + yearString
+//        Toast.makeText(
+//            this, "Date: $dateMessage",
+//            Toast.LENGTH_SHORT
+//        ).show();
+//    }
 
 }

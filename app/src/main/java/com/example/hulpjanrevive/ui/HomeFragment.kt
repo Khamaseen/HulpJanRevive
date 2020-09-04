@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
@@ -31,7 +30,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as MainActivity).setBar()
+        (activity as MainActivity).activateSupportActionBar()
 
         bordered_view.text = "12 uur"
         bordered_view.setTimeRemaining()
