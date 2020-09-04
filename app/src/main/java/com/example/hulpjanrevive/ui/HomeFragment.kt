@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
@@ -45,7 +46,6 @@ class HomeFragment : Fragment() {
         viewModel.liveTasks.observe(viewLifecycleOwner) { list ->
             setListOnAdapter(list)
         }
-//        add_new.setOnClickListener { addNumber331() }
         add_new.setOnClickListener { openDateDialogFragment() }
 
     }
@@ -57,10 +57,6 @@ class HomeFragment : Fragment() {
 
     private fun setListOnAdapter(list: List<Int>) {
         adapter.setData(list)
-    }
-
-    private fun addNumber331() {
-        viewModel.addNumber()
     }
 
 }
