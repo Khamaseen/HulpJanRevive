@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.home
 
 import android.content.Context
 import androidx.lifecycle.LiveData

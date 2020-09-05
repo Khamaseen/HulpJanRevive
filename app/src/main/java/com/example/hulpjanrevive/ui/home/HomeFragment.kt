@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
 import com.example.hulpjanrevive.maincomponents.MainActivity
+import com.example.hulpjanrevive.ui.DatePickerFragment
+import com.example.hulpjanrevive.ui.TaskAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {

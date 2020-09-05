@@ -1,10 +1,11 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.person
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hulpjanrevive.R
+import com.example.hulpjanrevive.ui.IconResource
 
 class AvatarViewHolder(
     itemView: View

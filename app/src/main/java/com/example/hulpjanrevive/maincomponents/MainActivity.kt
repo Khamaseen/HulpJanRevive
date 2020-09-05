@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-    
+
     override fun onBackPressed() {
         if (layout_drawer_main.isOpen) {
             drawerLayout.closeDrawer(GravityCompat.START)

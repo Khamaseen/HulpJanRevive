@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.home
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.hulpjanrevive.data.MainRepository
 import kotlinx.coroutines.CoroutineDispatcher
 
-class MainViewModelFactory(
+class HomeViewModelFactory(
     private val dispatcher: CoroutineDispatcher,
     private val context: Context,
     private val repository: MainRepository

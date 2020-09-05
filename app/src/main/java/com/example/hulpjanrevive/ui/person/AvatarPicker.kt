@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.person
 
 import android.content.Context
 import android.os.Bundle
@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.data.util.ResourceMapper
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
+import com.example.hulpjanrevive.ui.IconResource
+import com.example.hulpjanrevive.ui.RawIconResource
 import kotlinx.android.synthetic.main.fragment_avatar_dialog.*
 
 
@@ -42,7 +44,9 @@ class AvatarPicker(
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        adapter = AvatarAdapter(context, { onClicked(it) })
+        adapter = AvatarAdapter(
+            context,
+            { onClicked(it) })
     }
 
     override fun onCreateView(
@@ -59,7 +63,11 @@ class AvatarPicker(
         val mapper = ResourceMapper()
         arguments?.also {
             val number = it.getInt(ICON_RESOURCE)
-            val current = mapper.mapToIconResources(listOf(RawIconResource(number)))[0]
+            val current = mapper.mapToIconResources(listOf(
+                RawIconResource(
+                    number
+                )
+            ))[0]
             iv_current.setImageResource(current.icon)
             tv_current.text = getString(current.description)
         }
@@ -75,7 +83,9 @@ class AvatarPicker(
     }
 
     private fun onClicked(iconResource: IconResource) {
-        setFragmentResult(REQUEST_KEY, bundleOf(REQUEST_KEY_RESULT to iconResource))
+        setFragmentResult(
+            REQUEST_KEY, bundleOf(
+                REQUEST_KEY_RESULT to iconResource))
         dismiss()
     }
 

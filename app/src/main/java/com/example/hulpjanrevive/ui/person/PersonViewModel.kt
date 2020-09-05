@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.person
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.data.util.ResourceMapper
+import com.example.hulpjanrevive.ui.IconResource
+import com.example.hulpjanrevive.ui.RawIconResource
 import kotlinx.coroutines.CoroutineDispatcher
 
 class PersonViewModel(
@@ -52,7 +54,10 @@ class PersonViewModel(
     }
 
     fun postAvatar() {
-        _avatar.value = IconResource(R.drawable.ic_default_profile, R.string.ic_default_profile)
+        _avatar.value = IconResource(
+            R.drawable.ic_default_profile,
+            R.string.ic_default_profile
+        )
     }
 
 }

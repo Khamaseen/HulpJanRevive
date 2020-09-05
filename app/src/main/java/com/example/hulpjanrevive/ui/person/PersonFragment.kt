@@ -1,4 +1,4 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.person
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,8 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
 import com.example.hulpjanrevive.R
 import com.example.hulpjanrevive.maincomponents.ComponentInjector
+import com.example.hulpjanrevive.ui.IconResource
+import com.example.hulpjanrevive.ui.PersonFragmentArgs
 import kotlinx.android.synthetic.main.fragment_person.*
 
 

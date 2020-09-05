@@ -1,10 +1,11 @@
-package com.example.hulpjanrevive.ui
+package com.example.hulpjanrevive.ui.person
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hulpjanrevive.R
+import com.example.hulpjanrevive.ui.IconResource
 
 class AvatarAdapter(
     private val context: Context,

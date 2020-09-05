@@ -7,6 +7,9 @@ import com.example.hulpjanrevive.data.entities.User
 @Dao
 interface UsersDao {
 
+    @Query("SELECT * FROM users WHERE is_self LIMIT 1")
+    suspend fun getSelf(): LiveData<User>
+
     @Query("SELECT * FROM users")
     suspend fun getAll(): LiveData<List<User>>
 
@@ -17,12 +20,12 @@ interface UsersDao {
     suspend fun findByName(name: String): LiveData<User>
 
     @Insert
-    suspend fun insertUser(vararg users: User)
+    suspend fun insertUser(vararg users: User): List<Long>
 
     @Update
-    suspend fun updateUsers(vararg users: User)
+    suspend fun updateUsers(vararg users: User): List<Long>
 
     @Delete
-    suspend fun deleteUser(vararg user: User)
+    suspend fun deleteUser(vararg user: User): List<Long>
 
 }

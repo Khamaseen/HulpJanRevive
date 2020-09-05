@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.PersonFragment">
+    tools:context=".ui.person.PersonFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

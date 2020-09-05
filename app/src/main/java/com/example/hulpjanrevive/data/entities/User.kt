@@ -7,12 +7,12 @@ import com.example.hulpjanrevive.ui.RawIconResource
 
 @Entity(tableName = "users")
 data class User(
-    @PrimaryKey(autoGenerate = true) val uid: Int,
     val name: String,
     val association: Association,
     @ColumnInfo(name = "icon_resource") val rawIconResource: RawIconResource,
     @ColumnInfo(name = "is_self") val isSelf: Boolean
 ) {
+    @PrimaryKey(autoGenerate = true) val uid: Int = 0
 }
 
 enum class Association {
